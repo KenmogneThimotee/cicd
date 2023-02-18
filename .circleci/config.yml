@@ -354,7 +354,7 @@ jobs:
             tar -czf artifact.tar.gz dist/* package*
 
             cd ..
-            cp backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
+            cp backend/artifact.tar.gz .circleci/ansible/roles/deploy/files/
             cd .circleci/ansible/roles/deploy/files
             ls -l
       - run:
