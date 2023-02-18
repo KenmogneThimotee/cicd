@@ -353,7 +353,6 @@ jobs:
             npm run build
             tar -czf artifact.tar.gz dist/* package*
 
-            cd ..
             cp backend/artifact.tar.gz .circleci/ansible/roles/deploy/files
       - run:
           name: Deploy backend
@@ -391,6 +390,7 @@ jobs:
             --output text)
             export API_URL=http://${BACKEND_PUBLIC_IP}:3030
             echo http://${BACKEND_PUBLIC_IP}:3030
+            curl $API_URL/api/status
             curl -s $API_URL/api/status
 
       - run:
